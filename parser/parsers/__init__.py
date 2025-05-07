@@ -4,6 +4,7 @@ from parsers.accounts.staking_pools import StakingPoolsParser
 from parsers.message.tonco import TONCOSwap
 from parsers.jetton_transfer.megaton import MegatonDexSwap
 from parsers.message.tonfun import TonFunTrade
+from parsers.message.memeslab import MemesLabTrade
 from parsers.jetton_masters.jetton_metadata import JettonMastersMetadataParser
 from parsers.message.stonfi_swap_v2 import StonfiSwapV2
 from parsers.message.gaspump import GasPumpTrade
@@ -38,7 +39,7 @@ _parsers = [
     TonFunTrade(),
     GasPumpTrade(),
     TONCOSwap(),
-    
+    MemesLabTrade(),
     JettonMintParser(),
     HipoTokensMinted(),
 

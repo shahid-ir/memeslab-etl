@@ -168,10 +168,25 @@ CREATE TABLE IF NOT EXISTS parsed.tonfun_bcl_trade (
     updated timestamp NULL
 );
 
+--MemesLab
+CREATE TABLE IF NOT EXISTS parsed.memeslab_trade_event (
+    tx_hash bpchar(44) NULL PRIMARY KEY,
+    trace_id bpchar(44) NULL,
+    event_time int4 NULL,
+    bcl_master varchar NULL,
+    event_type varchar NULL,
+    trader_address varchar NULL,
+    ton_amount numeric NULL,
+    bcl_amount numeric NULL,
+    created timestamp NULL,
+    updated timestamp NULL
+);
+
+
 -- Adding usd volume for memepads
 ALTER TABLE parsed.gaspump_trade ADD column if not exists "volume_usd" numeric NULL;
 ALTER TABLE parsed.tonfun_bcl_trade ADD column if not exists "volume_usd" numeric NULL;
-
+ALTER TABLE parsed.memeslab_trade_event ADD column if not exists "volume_usd" numeric NULL;
 -- Fixing tonfun_bcl_trade primary key
 BEGIN;
 ALTER TABLE parsed.tonfun_bcl_trade DROP CONSTRAINT tonfun_bcl_trade_pkey;
